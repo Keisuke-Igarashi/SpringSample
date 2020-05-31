@@ -33,7 +33,7 @@ public class LoginController {
 		//return "login/login";
 		
 		//ホーム画面に遷移
-		return "redirect:/home";
+		return "redirect:/SpringSample-0.0.1-SNAPSHOT/home";
 	}
 	
 }
