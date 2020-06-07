@@ -12,7 +12,7 @@
   </head>
   <body class="text-center">
     <h1>Login</h1>
-    <form method="post" action="SpringSample-0.0.1-SNAPSHOT/login">
+    <form method="post" action="/SpringSample-0.0.1-SNAPSHOT/login">
       <p th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']}!=null"
         th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
         class="text-danger">
