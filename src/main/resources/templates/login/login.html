@@ -10,9 +10,9 @@
 
     <title>Login</title>
   </head>
-  <body class="text-center">
+  <body class="text-center" oncontextmenu="return false;" >
     <h1>Login</h1>
-    <form method="post" action="/SpringSample-0.0.1-SNAPSHOT/login">
+    <form method="post" action="/login">
       <p th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']}!=null"
         th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
         class="text-danger">
@@ -38,7 +38,81 @@
     <!--ポイント２：th:href -->
     <!--ユーザ登録画面へのリンク-->
     <!--アンカータグはGETメソッドで送信-->
-    <a th:href="@{'/signup'}">ユーザ新規登録はこちら</a>
+    <a th:href="@{'/signup'}">ユーザ新規登録はこちら</a><br/>
+    <!--
+    <a href = "JavaScript:window.alert('Hello, World!');">
+      ダイアログを表示</a>
+    -->
+    <script type="text/javaScript">
+    <!--
+    //function btn_onclick(){
+      //window.alert('ボタンがクリックされました。');
+    //}
+    //-->
+
+    //タイマーIDを格納するためのグローバル変数
+    var timer;
+
+    <!--
+    window.onload = function(){
+      //ボタン(btn)クリック時に実行されるイベントハンドラを登録
+      document.getElementById('btn').onclick = function(){
+        window.alert('ボタンがクリックされました。');
+      };
+      //var input = window.prompt('文字列を入力してください','山田');
+      //window.alert('入力値:'+input);
+      //ページロード時にタイマー処理を登録
+      /*timer = window.setInterval(
+        //現在の時刻を<div id='result'タグに表示(1000ミリ秒ごとに更新)
+        function(){
+          var dat = new Date();
+          document.getElementById('result').innerHTML = dat.toLocaleTimeString();
+        },
+        1000
+      );*/
+
+      //現在の時刻を<div id='result'タグに表示(3000ミリ杪後の一回)
+      timer = window.setTimeout(
+        function(){
+          var dat = new Date();
+          document.getElementById('result').innerHTML = dat.toLocaleTimeString();
+        },
+        3000
+      );
+    };
+
+    //サブウィンドウを表すWindowオブジェクトを格納する変数
+    var subwin;
+
+    //[サブウィンドウを開く]ボタンクリック時に実行
+    function win_open() {
+      subwin = window.open('http://www.wings.msn.to/','Sample','width=600, height=300, scrollbars=yes, location = no');
+    }
+
+    //[サブウィンドウを閉じる]ボタンクリック時に実行
+    function win_close() {
+      //変数subwinが空でなく、サブウィンドウが閉じられていない時にのみクローズ
+      if(subwin && !subwin.closed) {
+        subwin.close();
+      }
+    }
+
+
+
+    //-->
+    </script>
+    <!--<input type="button" value ="ダイアログ表示" onclick = "btn_onclick()" />-->
+    <input id='btn' type="button" value="ダイアログ表示" /><br />
+    <input type="button" value="サブウィンドウを開く" onclick="win_open()"/>
+    <input type="button" value="サブウィンドウを閉じる" onclick="win_close()" />
+
+    <form onsubmit="return window.confirm('ページを表示しても良いですか?');">
+      <input type = "submit" value = "送信" />
+    </form>
+    <!--　ボタンクリック時にタイマー処理を中止-->
+    <input type = "button" value="タイマー停止" onclick="clearTimeout(timer)" />
+    <div id="result"></div>
+
 
   </body>
 </html>
