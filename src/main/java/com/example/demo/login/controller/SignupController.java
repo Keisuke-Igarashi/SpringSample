@@ -42,7 +42,7 @@ public class SignupController {
 	
 	//ポイント１：@ModelAttribute
 	//ユーザ登録画面のGET用コントローラー
-	@GetMapping("/SpringSample/signup")
+	@GetMapping("/signup")
 	public String getSignUp(@ModelAttribute SignupForm form,Model model) {
 		
 		//ラジオボタンの初期化メソッドの呼び出し
@@ -57,7 +57,7 @@ public class SignupController {
 	
 	//ユーザ登録画面のPOST用コントローラー
 	//ポイント2：データバインド結果の受け取り
-	@PostMapping("/SpringSample/signup")
+	@PostMapping("/signup")
 	public String postSignup(@ModelAttribute @Validated(GroupOrder.class) SignupForm form,
 			BindingResult bindingResult,
 			Model model) {

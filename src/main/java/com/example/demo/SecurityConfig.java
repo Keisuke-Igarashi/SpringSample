@@ -81,14 +81,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/SpringSample/logout"))
-				.logoutUrl("/SpringSample/logout")
-				.logoutSuccessUrl("/SpringSample/login");
+				.logoutUrl("/logout")
+				.logoutSuccessUrl("/login");
 				
 		//CSRF対策を無効に設定
 		//http.csrf().disable();
 		
 		//CSRFを無効にするURLを設定
-		RequestMatcher csrfMatcher = new RestMatcher("/SpringSample/rest/**");
+		RequestMatcher csrfMatcher = new RestMatcher("/rest/**");
 		
 		//RESTのみCSRF対策を無効に設定
 		http.csrf().requireCsrfProtectionMatcher(csrfMatcher);
