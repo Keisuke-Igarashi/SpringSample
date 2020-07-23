@@ -210,6 +210,6 @@ public class HomeContrller {
 		model.addAttribute("contents","login/admin :: admin_contents");
 		
 		//レイアウト用テンプレート
-		return "login/homelayout";
+		return "login/homeLayout";
 	}
 }
