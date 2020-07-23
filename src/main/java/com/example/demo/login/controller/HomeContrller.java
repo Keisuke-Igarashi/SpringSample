@@ -52,7 +52,7 @@ public class HomeContrller {
 	}
 	
 	//ユーザ一覧画面のGET用メソッド
-	@GetMapping("/userList")
+	@GetMapping("/SpringSample/userList")
 	public String getUserList(Model model) {
 		
 		//コンテンツ部分にユーザ一覧を表示するための文字列を登録
@@ -74,7 +74,7 @@ public class HomeContrller {
 	//動的URL
 	//@PathVariable
 	//ユーザ詳細画面のGET用メソッド
-	@GetMapping("/userDetail/{id:.+}")
+	@GetMapping("/SpringSample/userDetail/{id:.+}")
 	public String getUserDetail(@ModelAttribute SignupForm form,
 				Model model,
 				@PathVariable("id")String userId) {
@@ -114,7 +114,7 @@ public class HomeContrller {
 	
 	//ポイント：ボタン名によるメソッド判定
 	//ユーザ更新用処理.
-	@PostMapping(value = "/userDetail", params = "update")
+	@PostMapping(value = "/SpringSample/userDetail", params = "update")
 	public String postUserDetailUpdate(@ModelAttribute SignupForm form, Model model) {
 		System.out.println("更新ボタンの処理");
 		
@@ -149,7 +149,7 @@ public class HomeContrller {
 	}
 	
 	//ユーザ削除用処理
-	@PostMapping(value = "/userDetail", params = "delete")
+	@PostMapping(value = "/SpringSample/userDetail", params = "delete")
 	public String PostUserDetailDelete(@ModelAttribute SignupForm form, Model model) {
 		
 		System.out.println("削除ボタンの処理");
@@ -168,7 +168,7 @@ public class HomeContrller {
 	}
 	
 	//ログアウト用メソッド
-	@PostMapping("/logout")
+	@PostMapping("/SpringSample/logout")
 	public String postLogout(Model model) {
 	
 		//ログイン画面にリダイレクト
@@ -176,7 +176,7 @@ public class HomeContrller {
 	}
 	
 	//ユーザ一覧のCSV出力用メソッド
-	@GetMapping("/userList/csv")
+	@GetMapping("/SpringSample/userList/csv")
 	public ResponseEntity<byte[]> getUserListCsv(Model model) {
 		
 		//ユーザを全件取得して、CSVサーバーに保存する
@@ -203,7 +203,7 @@ public class HomeContrller {
 	}
 	
 	//アドミン権限専用画面のGETメソッド
-	@GetMapping("/admin")
+	@GetMapping("/SpringSample/admin")
 	public String getAdmin(Model model) {
 		
 		//コンテンツ部分にユーザ詳細を表示するための文字列を登録

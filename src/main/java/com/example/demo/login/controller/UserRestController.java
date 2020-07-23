@@ -22,7 +22,7 @@ public class UserRestController {
 	RestService service;
 	
 	//ユーザ全件取得
-	@GetMapping("/rest/get")
+	@GetMapping("/SpringSample/rest/get")
 	public List<User> getUserMany(){
 		
 		//ユーザー全件取得
@@ -30,14 +30,14 @@ public class UserRestController {
 	}
 	
 	//ユーザ１件取得
-	@GetMapping("/rest/get/{id:.+}")
+	@GetMapping("/SpringSample/rest/get/{id:.+}")
 	public User getUserOne(@PathVariable("id")String userId) {
 		
 		//ユーザー1件取得
 		return service.selectOne(userId);
 	}
 	
-	@PostMapping("/rest/insert")
+	@PostMapping("/SpringSample/rest/insert")
 	public String postUserOne(@RequestBody User user) {
 		
 		//ユーザを1件登録
@@ -55,7 +55,7 @@ public class UserRestController {
 		return str;
 	}
 	
-	@PutMapping("/rest/update")
+	@PutMapping("/SpringSample/rest/update")
 	public String putUserOne(@RequestBody User user) {
 		
 		//ユーザーを１件更新
@@ -73,7 +73,7 @@ public class UserRestController {
 		return str;
 	}
 	
-	@DeleteMapping("/rest/delete/{id:.+}")
+	@DeleteMapping("/SpringSample/rest/delete/{id:.+}")
 	public String deleteUserOne(@PathVariable("id")String userId) {
 		
 		//ユーザーを１件削除

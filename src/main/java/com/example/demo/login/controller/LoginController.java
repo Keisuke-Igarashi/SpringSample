@@ -18,7 +18,7 @@ public class LoginController {
 	}
 	
 	//HEADER情報学習用のGET用コントローラー
-	@GetMapping("/cssexp")
+	@GetMapping("/SpringSample/cssexp")
 	public String getCssexp(Model model) {
 		
 		//cssexp.htmlに画面遷移

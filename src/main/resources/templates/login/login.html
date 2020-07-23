@@ -5,14 +5,14 @@
 
     <!--ポイント１：Bootstrapの設定 -->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"></link>
-    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></<script>
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 
     <title>Login</title>
   </head>
   <body class="text-center" oncontextmenu="return false;" >
     <h1>Login</h1>
-    <form method="post" action="/login">
+    <form method="post" action="/SpringSample/login">
       <p th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']}!=null"
         th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
         class="text-danger">
